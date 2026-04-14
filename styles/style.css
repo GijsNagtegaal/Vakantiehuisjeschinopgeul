@@ -65,7 +65,7 @@ header {
     z-index: 2;
 
     nav {
-        margin: 0 auto;
+        margin: 0 1rem;
         width: 90vw;
 
         ul {
@@ -77,20 +77,21 @@ header {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 50%;
 
             &:nth-of-type(1) {
                 justify-content: flex-start;
+                width: 60%;
             }
 
             &:nth-of-type(2) {
                 justify-content: flex-end;
+                width: 40%;
             }
         }
 
         img {
             width: 100%;
-            max-width: 25rem;
+            max-width: 24rem;
         }
     }    
 }  
