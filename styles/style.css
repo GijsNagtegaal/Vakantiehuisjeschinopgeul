@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-family: var(--font-primary);
-}
-
 :root {
     /* font-roboto */
     --font-primary: "Roboto";
@@ -14,6 +7,7 @@
     /* font-size */
     --small-font: .8rem;
     --general-font: 1rem;
+    --intermid-font: 1.2rem;
     --medium-font: 1.5rem;
     --large-font: 2rem;
     --heading-font: 4rem;
@@ -36,6 +30,15 @@
     --dark-text: rgb(15, 15, 15);
     
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-primary);
+}
+
+
 
 p, a, span, button {
     font-size: var(--general-font)
@@ -91,21 +94,37 @@ img, video {
 
 }
 
+.desktop {
+    display: none;
+
+    @media (min-width: 489px ) {
+        display: block;
+    }
+}
+
+.mobile {
+    display: block;
+
+    @media (min-width: 489px ) {
+        display: none;
+    }
+}
+
 header {
     background-color: transparent;
     font-size: var(--general-font);
     padding: 10px 0px;
-    width: 100vw;
+    width: 100%;
     height: auto;
     position: relative;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 2;
-    transition: animation .3s linear;
+    transition: animation .5s linear;
     animation: stickify linear both;
     animation-timeline: scroll();
-    animation-range: 0px 100px;
+    animation-range: 0px 30dvh;
 
     nav {
         padding-inline: .5rem;
@@ -195,13 +214,17 @@ header {
 
 
 main {
-    height: 40000px;
+    height: 200vh;
 
     .underlay-img {
         width: 100vw;
-        height: 100vh;
+        height: 100dvh;
         opacity: .4;
         object-fit: cover;
+
+        &.mobile {
+            object-position: 20%;
+        }
     }
 
     .banner {
@@ -216,11 +239,10 @@ main {
         color: white;
         display: flex;
         flex-direction: column;
-        width: 100vw;
+        width: 100%;
 
         h1 {
-            text-transform: uppercase;
-            font-size: var(--heading-font);
+            font-size: var(--large-font);
         }
     }
 
@@ -243,12 +265,21 @@ main {
         }
     }
 
-    .text-banner-gaps {
+    .text-banner {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        width: 80vw;
-        place-self: center;
+        gap: 1rem;
+        font-size: var(--general-font);
+        align-items: flex-start;
+        padding-inline: 2rem;
+        justify-content: center;
+
+        p {
+            font-size: var(--intermid-font);
+            width: 100%;
+            max-width: 45rem;
+            font-weight: 500;
+        }
     }
 
     .transparent-banner {
